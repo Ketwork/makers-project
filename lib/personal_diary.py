@@ -7,4 +7,4 @@ def make_snippet(string):
         snippet = " ".join(first_five)
         return snippet + '...'
     else:
-      return string
+        return string
