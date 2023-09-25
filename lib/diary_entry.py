@@ -30,8 +30,3 @@ class DiaryEntry:
         chunk_words = words[chunk_start:chunk_end]
         self._read_so_far = chunk_end
         return  " ".join(chunk_words)
-        #
-        # If called again, `reading_chunk` should return the next chunk,
-        # skipping what has already been read, until the contents is fully read.
-        # The next call after that should restart from the beginning.
-        pass
