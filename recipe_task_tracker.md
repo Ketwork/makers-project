@@ -65,7 +65,7 @@ tracker.list_tasks() # => ["walk the dog"]
 When we add multiple task 
 they are all reflected in the list of tasks
 """
-tracker = Tracker
+tracker = TaskTracker()
 tracker.add_task("walk the dog")
 tracker.add_task("walk the cat")
 tracker.add_task("walk the frog")
@@ -76,7 +76,7 @@ When we add multiple task
 and mark one as complete
 it disapears from the task list 
 """
-tracker = Tracker
+tracker = TaskTracker()
 tracker.add_task("walk the dog")
 tracker.add_task("walk the cat")
 tracker.add_task("walk the frog")
@@ -88,7 +88,7 @@ tracker.list_tasks() # => ["walk the dog", "walk the frog"]
 If we try to mark a track complete that does not exist (too low)
 It raises an error
 """
-tracker = Tracker
+tracker = TaskTracker()
 tracker.add_task("walk the dog")
 tracker.mark_complete(-1) #raises an error "No such task to mark complete"
 
@@ -96,7 +96,7 @@ tracker.mark_complete(-1) #raises an error "No such task to mark complete"
 If we try to mark a track complete that does not exist (too high)
 It raises an error
 """
-tracker = Tracker
+tracker = TaskTracker()
 tracker.add_task("walk the dog")
 tracker.mark_complete(2) #raises an error "No such task to mark complete"
 tracker.list_tasks() # => ["walk the dog"]
