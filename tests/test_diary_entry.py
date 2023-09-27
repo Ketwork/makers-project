@@ -50,7 +50,6 @@ def tests_counts_words_returns_word_count_of_contents():
     result = diary_entry.count_words()
     assert result == 5
 
-
 """
 given wpm of 2
 And a text with 2 words
@@ -121,8 +120,39 @@ given wpm of 2 and a minutes of 1
 first #reading_chunk returns the first two words
 next time, "three four
 """
-
 def test_reading_chunk_with_two_wpm_and_one_minute_called_twice():
     diary_entry = DiaryEntry("My Title", "one two three four five six")
     assert diary_entry.reading_chunk(2, 1) == "one two"
     assert diary_entry.reading_chunk(2, 1) == "three four"
+
+"""
+When I initialise with a five-word contents
+Then, on the third call, #reading_chunk should return the final, partial chunk
+"""
+def test_readable_chunk_third_chunk():
+    diary_entry = DiaryEntry("My Title", "one two three four five")
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    assert diary_entry.reading_chunk(2, 1) == "five"
+
+"""
+When I initialise with a five-word contents
+Then, on the fouth call, #reading_chunk should start again from the beginning
+"""
+def test_readable_chunk_fouth_chunk():
+    diary_entry = DiaryEntry("My Title", "one two three four five")
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    assert diary_entry.reading_chunk(2, 1) == "one two"
+
+"""
+When I initialise with a six-word contents
+Then, on the fouth call, #reading_chunk should start again from the beginning
+"""
+def test_readable_chunk_fouth_chunk_with_exact_chunks():
+    diary_entry = DiaryEntry("My Title", "one two three four five six")
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    assert diary_entry.reading_chunk(2, 1) == "one two"

@@ -11,10 +11,6 @@ class DiaryEntry:
     def format(self):
         return self._title + ": " + self._contents 
 
-    # def count_words(self):
-    #     words = self.format().split()
-    #     return len(words)
-
     def count_words(self):
         words = self._contents.split()
         return len(words)
@@ -26,10 +22,12 @@ class DiaryEntry:
         return math.ceil(content_words / wpm)
 
     def reading_chunk(self, wpm, minutes):
-        words_user_can_read = wpm * minutes
         words = self._contents.split()
+        if self._read_so_far >= len(words):
+            self._read_so_far = 0
+        words_user_can_read = wpm * minutes
         chunk_start = self._read_so_far
         chunk_end = self._read_so_far + words_user_can_read
-        chunk_words = words[chunk_start:chunk_end]
+        readable_chunk = " ".join(words[chunk_start:chunk_end])
         self._read_so_far = chunk_end
-        return  " ".join(chunk_words)
+        return  readable_chunk

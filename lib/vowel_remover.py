@@ -13,5 +13,5 @@ class VowelRemover:
         return self.text
     
 
-remover = VowelRemover("aeiou")
-print(remover.remove_vowels())
+# remover = VowelRemover("aeiou")
+# print(remover.remove_vowels())
