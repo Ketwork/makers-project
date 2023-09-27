@@ -7,13 +7,16 @@ class DiaryEntry:
         self._title = title
         self._contents = contents
         self._read_so_far = 0
-        pass
 
     def format(self):
         return self._title + ": " + self._contents 
 
+    # def count_words(self):
+    #     words = self.format().split()
+    #     return len(words)
+
     def count_words(self):
-        words = self.format().split()
+        words = self._contents.split()
         return len(words)
         
     def reading_time(self, wpm):

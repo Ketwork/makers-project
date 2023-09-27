@@ -23,13 +23,33 @@ def test_formats_with_title_and_contents():
     assert result == "My Title: Some contents"
 
 """
-given a title and contents
-#count_words returns the number of words in the title and contents
+when I initialise with a title and contents
+I can get that title and contents back
 """
-def tests_counts_words_in_both_title_and_contents():
-    diary_entry = DiaryEntry("My Title", "Some contents")
+def tests_constructs_and_gets_title_and_contents():
+    diary_entry = DiaryEntry("My Title", "My Contents")
+    assert diary_entry._title == "My Title"
+    assert diary_entry._contents == "My Contents"
+
+
+# """
+# given a title and contents
+# #count_words returns the number of words in the title and contents
+# """
+# def tests_counts_words_in_both_title_and_contents():
+#     diary_entry = DiaryEntry("My Title", "Some contents")
+#     result = diary_entry.count_words()
+#     assert result == 4
+
+"""
+When I initialise with a five-word contents
+#count_words should return five
+"""
+def tests_counts_words_returns_word_count_of_contents():
+    diary_entry = DiaryEntry("My Title", "one two three four five")
     result = diary_entry.count_words()
-    assert result == 4
+    assert result == 5
+
 
 """
 given wpm of 2
