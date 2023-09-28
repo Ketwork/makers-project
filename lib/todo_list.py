@@ -4,7 +4,7 @@ class TodoList:
 
     def add(self, todo):
         self.todos.append(todo)
-      
+    
     def incomplete(self):
         incomplete_tasks = []
         for todo in self.todos:
@@ -20,9 +20,5 @@ class TodoList:
         return complete_tasks
 
     def give_up(self):
-        # Returns:
-        #   Nothing
-        # Side-effects:
-        #   Marks all todos as complete
         for todo in self.todos:
             todo.complete = True

@@ -51,4 +51,4 @@ def test_give_up_returns_all_as_completed():
     todo_list.add(todo2)
     todo_list.add(todo3)
     todo_list.give_up() 
-    assert todo_list.complete() == [todo1, todo2]
+    assert todo_list.complete() == [todo1, todo2, todo3]
